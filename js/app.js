@@ -83,7 +83,30 @@ const fetchCountries = () => {
 }
 fetchCountries();
 
-searchInput.addEventListener('input', () => {    
+searchInput.addEventListener('input', () => { 
+    displaySearch();   
+    /*const searchTerm = searchInput.value.toLowerCase();
+    console.log(searchTerm);
+    
+    const filteredCountries = countriesArray.filter(country =>        
+        country.name.toLowerCase().includes(searchTerm));  
+    
+    console.log(filteredCountries);
+    if (filteredCountries.length > 0) {
+        console.log("Name found: ", filteredCountries);
+        displayCountries(filteredCountries);
+    } else {
+        console.log("Name not found");
+    } */ 
+});
+
+searchInput.addEventListener('keypress', () => {
+    if (Event.keyCode === 13 || Event.which === 13) {
+        displaySearch();
+    }
+})
+
+const displaySearch = () => {
     const searchTerm = searchInput.value.toLowerCase();
     console.log(searchTerm);
     
@@ -97,7 +120,7 @@ searchInput.addEventListener('input', () => {
     } else {
         console.log("Name not found");
     }  
-});
+}
 
 const displayCountries = arr => {
     let card = ``;
