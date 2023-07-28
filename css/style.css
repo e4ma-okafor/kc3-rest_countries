@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Courgette&family=Halant:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --bg-color: hsl(0, 0%, 98%);
+    --text-color: hsl(200, 15%, 8%);
+    --bg-color-dark: hsl(207, 26%, 17%);
+    --text-color-dark: hsl(0, 0%, 100%);
+    --dark-mode: hsl(209, 23%, 22%);
+    --light-mode: hsl(0, 0%, 100%);
+    --input-element: hsl(0, 0%, 52%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+}
+
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+#theme-switch {
+    cursor: pointer;
+}
+
+.header {
+    box-shadow: rgba(200,200,200,0.25) 1.95px 1.95px 2.6px;
+    background: var(--light-mode);
+    font-weight: 700;
+}
+
+h4 {
+    font-weight: 700;
+}
+
+body.dark-mode .header {
+    background: var(--dark-mode);
+    box-shadow: rgba(54, 54, 54, 0.25) 1.95px 1.95px 2.6px;
+}
+
+.search {
+    width: 35%;
+}
+
+input[type="search"] {
+    background: url("../img/icons8-search-48.png") no-repeat 15px center;
+    background-size: 20px 20px;
+    padding: 16px 0px 16px 60px;
+    cursor: pointer;
+} 
+
+body.dark-mode input {
+    background-image: url(../img/icons8-search-48-white.png);    
+} 
+
+::-webkit-input-placeholder {
+    color: var(--input-element);    
+}
+
+body.dark-mode input::-webkit-input-placeholder {
+    color: var(--text-color-dark);    
+}
+
+input[type="search"],
+.back-btn,
+#dropdown-btn,
+#dropdown-box {
+    background-color: hsl(0, 0%, 100%);
+    color: var(--text-color);     
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;    
+    border: none;
+    box-shadow: rgba(200,200,200,0.25) 0px 0px 8px 2px, rgba(200,200,200,0.20) 0px 0px 8px 2px;  
+}
+
+body.dark-mode input,
+body.dark-mode .back-btn,
+body.dark-mode #dropdown-btn,
+body.dark-mode #dropdown-box {
+    background-color: var(--dark-mode);  
+    color: var(--text-color-dark); 
+    box-shadow: rgba(54, 54, 54, 0.25) 1.95px 1.95px 2.6px;
+}
+
+.dropdown {
+    cursor: pointer;
+    font-size: 14px;
+    width: 15%;
+    font-weight: 800;
+}
+
+#dropdown-btn,
+#dropdown-box {
+    padding: 18px 15px;
+}
+
+.hide {
+    display: none;
+}
+
+#world-countries {
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;    
+}
+
+.country-card {
+    background: var(--light-mode);
+    overflow: hidden;
+    color: var(--text-color);
+    box-shadow: 0px 0px 8px 2px rgba(200,200,200,0.25);
+}
+
+body.dark-mode .country-card,
+body.dark-mode .border-countries .btn {
+    background: var(--dark-mode);
+    color: var(--text-color-dark);
+    box-shadow: 0px 0px 4px 1px rgba(54, 54, 54, 0.25);
+}
+
+.back-btn {
+    width: 10%;
+}
+
+#the-country .details {
+    width: 45%;
+}
+
+#the-country .flag {
+    width: 50%;
+    height: 60vh;
+}
+
+#the-country .flag img {
+    width: 15%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
+
+#the-country {       
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-columns {
+    display: flex; 
+    justify-content: space-between;        
+}
+
+.detail-columns p,
+.borders p{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.detail-columns span {
+    font-weight: lighter;
+}
+
+.border-countries .btn {
+    background: #fff;
+    box-shadow: 0px 0px 8px 2px rgba(200,200,200,0.25);
+}
+
+.border-countries {
+    display: flex;
+    width: 70%;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 426px) {
+    #theme-switch p {
+        display: none;
+    }
+
+    #theme-switch {
+        margin-top: 0 !important;
+    }
+
+    .dropdown {
+        width: 60%;        
+    }
+
+    .mt-5-small {
+        margin-top: 35px !important;        
+    }
+
+    .d-flex-small,
+    #the-country,
+    .detail-columns,
+    #the-country .d-flex {
+        flex-direction: column;
+    }
+
+    .search {
+        width: 100% !important;        
+        margin-bottom: 35px;
+    }
+
+    #world-countries {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .country-card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .back-btn {
+        width: 40%;
+        justify-content: center !important;
+        gap: 20px;
+    }
+
+    #the-country .flag,
+    #the-country .details,
+    .border-countries {
+        width: 100% !important;        
+    }    
+
+    #the-country .country-name,
+    .column2 {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 769px) and (min-width: 426px) {
+    #world-countries {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+    }
+
+    .country-card {
+        width: 90%;        
+    }
+
+    .back-btn {
+        width: 30%;
+        justify-content: center !important;
+        gap: 20px;
+    }
+
+    #the-country {
+        flex-direction: column;
+    }
+
+    #the-country .flag,
+    #the-country .details {
+        width: 90% !important;
+    }
+
+    #the-country .country-name {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 1025px) and (min-width: 769px) {
+    #world-countries {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+    }
+
+    .border-countries {
+        width: 60% !important;        
+    }
+
+    #the-country .flag {
+        width: 48%;
+        height: 100vh;
+        margin-bottom: 50px;
+    }
+}
