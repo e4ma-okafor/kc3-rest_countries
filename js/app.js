@@ -3,6 +3,7 @@ const body = document.querySelector('body');
 const icon = document.querySelector('.bi');
 const modeText = document.querySelector('.theme');
 let searchInput = document.getElementById("search-Input");
+const searchForm = document.getElementById("searchForm");
 let dropdownBtn = document.getElementById("dropdown-btn");
 let dropdownBox = document.getElementById("dropdown-box");
 let dropdownItems = document.querySelectorAll(".dropdown-item");
@@ -23,6 +24,16 @@ themeSwitch.addEventListener('click', function () {
 
 dropdownBtn.addEventListener('click', () => {
     dropdownBox.classList.toggle('hide')
+})
+
+document.addEventListener('click', (event) => {
+    const targetElement = event.target;
+
+    if (targetElement !== dropdownBtn && !dropdownBox.contains(targetElement)) {
+        if (!dropdownBox.classList.contains('hide')) {
+            dropdownBox.classList.add('hide');
+        }
+    }
 })
 
 dropdownItems.forEach(item => {
@@ -100,15 +111,15 @@ searchInput.addEventListener('input', () => {
     } */ 
 });
 
-searchInput.addEventListener('keypress', () => {
-    if (Event.keyCode === 13 || Event.which === 13) {
+searchInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
         displaySearch();
     }
 })
 
 const displaySearch = () => {
     const searchTerm = searchInput.value.toLowerCase();
-    console.log(searchTerm);
+    console.log(searchTerm);    
     
     const filteredCountries = countriesArray.filter(country =>        
         country.name.toLowerCase().includes(searchTerm));  
@@ -119,8 +130,13 @@ const displaySearch = () => {
         displayCountries(filteredCountries);
     } else {
         console.log("Name not found");
-    }  
+    }
 }
+
+searchForm.addEventListener('submit', (search) => {
+    search.preventDefault();
+    displaySearch();
+})
 
 const displayCountries = arr => {
     let card = ``;
